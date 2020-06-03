@@ -1,7 +1,7 @@
 {
-  "name": "js-kata-starter",
+  "name": "game-of-life-js",
   "version": "1.0.0",
-  "description": "Starter project for kata (Node, TypeScript, Jest)",
+  "description": "Game Of Life kata in TypeScript",
   "main": "index.js",
   "scripts": {
     "test": "jest --watch --config jest.config.json",
@@ -9,18 +9,24 @@
   },
   "devDependencies": {
     "@types/jest": "^25.1.1",
+    "@types/lodash.flatten": "^4.4.6",
+    "@types/object-hash": "^1.3.3",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.0",
     "typescript": "^3.7.5"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^14.0.9",
+    "lodash.flatten": "^4.4.0",
+    "object-hash": "^2.0.3"
+  },
   "prettier": {
     "printWidth": 120
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mathieueveillard/js-kata-starter.git"
+    "url": "git+https://github.com/mathieueveillard/game-of-life-js.git"
   },
   "keywords": [
     "starter",
@@ -33,7 +39,7 @@
   "author": "Mathieu Eveillard",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mathieueveillard/js-kata-starter/issues"
+    "url": "https://github.com/mathieueveillard/game-of-life-js/issues"
   },
-  "homepage": "https://github.com/mathieueveillard/js-kata-starter#readme"
+  "homepage": "https://github.com/mathieueveillard/game-of-life-js#readme"
 }

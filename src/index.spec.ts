@@ -7,9 +7,9 @@ import {
   computeNeighborhood,
   Neighborhood,
   nextGeneration,
-  isAlive,
-  comparePositions
+  isAlive
 } from ".";
+import { comparePositions } from "./testutils";
 
 it("Any live cell with fewer than two live neighbors dies", function() {
   expect(shouldLive(true, 1)).toEqual(false);
@@ -35,7 +35,7 @@ it("Any dead cell with exactly three live neighbors becomes a live cell", functi
   expect(shouldLive(false, 3)).toEqual(true);
 });
 
-it("Any dead cell with more than three live neighbors becomes a live cell", function() {
+it("Any dead cell with more than three live neighbors is still a dead cell", function() {
   expect(shouldLive(false, 4)).toEqual(false);
 });
 
@@ -98,6 +98,7 @@ it("Should say whether a cell is alive or not", function() {
 });
 
 it("Should compare positions", function() {
+  expect(comparePositions({ x: 0, y: 0 }, { x: 0, y: 0 })).toEqual(-1);
   expect(comparePositions({ x: 1, y: 0 }, { x: 0, y: 0 })).toEqual(1);
   expect(comparePositions({ x: 0, y: 1 }, { x: 0, y: 0 })).toEqual(1);
   expect(comparePositions({ x: 0, y: 1 }, { x: 1, y: 0 })).toEqual(-1);
@@ -111,7 +112,7 @@ it("Should compute the next generation board", function() {
     { x: 1, y: 2 },
     { x: 2, y: 2 }
   ];
-  const actualNextGeneration = nextGeneration(board);
+  const actualNextGeneration = nextGeneration(board).sort(comparePositions);
   const expectedNextGeneration: Board = [
     { x: 0, y: 0 },
     { x: 0, y: 1 },
